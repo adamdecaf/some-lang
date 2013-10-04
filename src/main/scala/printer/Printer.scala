@@ -1,9 +1,8 @@
 package com.decaf.langz
 
 class Printer(private[this] val infix: Boolean = false) {
-
-	def prettyPrint(exp: Expression, level: Int = 0): String = exp match {
-		case sym: SymbolExp => prettyPrintSymbolExpression(sym, level)
+  def prettyPrint(exp: Expression, level: Int = 0): String = exp match {
+    case sym: SymbolExp => prettyPrintSymbolExpression(sym, level)
 		case op: Operation => 
 			if (infix) {
 				newLine + indent(level) + prettyPrintOperationInfix(op, level)
